@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Mail;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class _Default : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        //SmtpClient client =
+        //         new SmtpClient("smtp.gmail.com", 245);
+        //            MailMessage msg =
+        //                new MailMessage("mexxf1314@gmail.com", "1197049925@qq.com", "这个是标题", "这个是内容");
+        //             client.UseDefaultCredentials = false;
+        //             System.Net.NetworkCredential basicAuthenticationInfo =
+        //                 new System.Net.NetworkCredential("mexxf@gmail.com", "xxf644161.");
+        //             client.Credentials = basicAuthenticationInfo;
+        //             client.EnableSsl = true;
+        //            client.Send(msg);
+
+
+        //-----------------------------------------------
+        /*第二种，利用本地的smtp来发送邮件*/
+        SmtpClient smtp =
+            new SmtpClient("localhost", 25);
+        MailMessage message =
+            new MailMessage("1197049924@qq.com", "493919133@qq.com", "标题：测试一下iis发邮件", "内容：老翁，你好!哈哈");
+        smtp.Send(message);
+
+        Console.WriteLine("发送成功！");
+        Console.Read();
+        //---------------------------------------------
+        //string str = "0123456789ABCDEFGHiJKLMNOPQRSTUVWXYZ";
+        //char[] chastr = str.ToCharArray();
+        //string code = "";
+        //Random rd = new Random();
+        //int i;
+        //for (i = 0; i < 4; i++)
+        //{
+        //    code += str.Substring(rd.Next(0, str.Length), 1);
+        //}
+        ////MailMessage myM = new MailMessage();
+        ////SmtpClient smtp = new SmtpClient("localhost", 25);
+        ////MailMessage message = new MailMessage
+        ////    ("1197049925@qq.com", "493919133@qq.com", "浮云网密码找回", "验证码为：" + code);
+        ////smtp.Send(message);
+        ////Response.Write("ok");
+
+
+        //MailMessage msg = new MailMessage();
+        //msg.To.Add("1197049925@qq.com");
+        //msg.To.Add("493919133@qq.com");
+        //msg.From = new MailAddress("493919133@qq.com", "天行健", System.Text.Encoding.UTF8);
+
+        //msg.Subject = "这是测试邮件";//邮件标题 
+        //msg.SubjectEncoding = System.Text.Encoding.UTF8;//邮件标题编码 
+        //msg.Body = "验证码为:"+code;//邮件内容 
+        //msg.BodyEncoding = System.Text.Encoding.UTF8;//邮件内容编码 
+        //msg.IsBodyHtml = false;//是否是HTML邮件 
+        //msg.Priority = MailPriority.High;//邮件优先级
+
+        //SmtpClient client = new SmtpClient();
+        //client.Credentials = new System.Net.NetworkCredential("493919133@qq.com", "xxf644161.");
+        ////注册的邮箱和密码 
+        //client.Host = "smtp.qq.com";
+        //object userState = msg;
+        //try
+        //{
+        //    client.SendAsync(msg, userState);
+
+        //}
+        //catch (Exception ex)
+        //{
+        //    Console.WriteLine(ex.Message);
+
+        //}
+        //Response.Write("ok");
+    }
+
+}
